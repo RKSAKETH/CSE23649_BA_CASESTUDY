@@ -1,6 +1,9 @@
 # Determinants of Coworking Space Pricing, Amenity Valuation, and User Satisfaction: A Global Revealed-Preference Study
 
-**Course:** Business Analytics Case Study  
+**Student Name:** Regella Krishna Saketh  
+**Roll Number / Register Number:** CB.SC.U4CSE23649  
+**Class / Section:** CSE G  
+**Course:** 23CSE452 Business Analytics  
 **Primary Data Source:** [Coworker.com](https://www.coworker.com) (Automated Web-Scraped Global Directory)  
 **Deliverable Artifacts:** `README.md`, `data/`, `analysis.ipynb`, `Case_Study_Report.pdf`, `figures/`  
 

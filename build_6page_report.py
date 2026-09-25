@@ -32,7 +32,7 @@ class NumberedCanvas(canvas.Canvas):
         # Header (Pages 2+)
         if self._pageNumber > 1:
             self.drawString(45, 755, '23CSE452 Business Analytics | Individual Case Study Report')
-            self.drawRightString(567, 755, 'Regella Krishna Saketh (CB.SC.U4CSE23649)')
+            self.drawRightString(567, 755, 'Regella Krishna Saketh (CB.SC.U4CSE23649 - CSE G)')
             self.setStrokeColor(colors.HexColor('#CCCCCC'))
             self.setLineWidth(0.5)
             self.line(45, 748, 567, 748)
@@ -179,7 +179,7 @@ def build_pdf(filename="Case_Study_Report_6_Pages.pdf"):
     story.append(Paragraph("A Global Revealed-Preference Study Across 100+ Countries | Course: 23CSE452 Business Analytics", subtitle_style))
     
     meta_table = Table([[
-        Paragraph("<b>Student:</b> Regella Krishna Saketh &nbsp;|&nbsp; <b>Roll Number:</b> CB.SC.U4CSE23649 &nbsp;|&nbsp; <b>Primary Source:</b> Coworker.com &nbsp;|&nbsp; <b>Cleaned Sample:</b> N = 13,882", meta_style)
+        Paragraph("<b>Student:</b> Regella Krishna Saketh &nbsp;|&nbsp; <b>Roll No:</b> CB.SC.U4CSE23649 &nbsp;|&nbsp; <b>Class/Section:</b> CSE G &nbsp;|&nbsp; <b>Sample:</b> N = 13,882", meta_style)
     ]], colWidths=[522])
     meta_table.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#EDF2F7')),
