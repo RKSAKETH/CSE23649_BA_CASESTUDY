@@ -124,7 +124,7 @@ Syllabus Unit 3: Text Mining, Document Preprocessing & Bag-of-Words Feature Extr
 │   ├── coworking_dataset_full.csv <- Raw web-scraped dataset (26,965 records)
 │   └── coworking_dataset_clean.csv<- Final cleaned, validated & anonymized dataset (13,882 records)
 ├── analysis.ipynb                 <- Fully executed Jupyter Notebook with code, comments & all outputs
-├── Case_Study_Report.pdf          <- Final 8-10 page formal PDF report (prescribed Section A format)
+├── Case_Study_Report.pdf          <- Final 6-page formal PDF report (prescribed 5–7 page format)
 ├── figures/                       <- High-resolution publication charts (14 figures)
 │   ├── fig1_geographic_distribution.png
 │   ├── fig2_price_distribution.png
@@ -140,37 +140,11 @@ Syllabus Unit 3: Text Mining, Document Preprocessing & Bag-of-Words Feature Extr
 │   ├── fig_market_clusters_radar.png
 │   ├── fig_roc_curves_confusion.png
 │   └── fig_roc_logistic_vs_rf.png
-├── generate_notebook.py           <- Automated notebook build script with full documentation
-└── run_notebook.py                <- Headless kernel execution script
 ```
 
 ---
 
-## 8. Reproducibility & Environment Setup
-
-To reproduce the analysis locally:
-
-```bash
-# 1. Clone your GitHub Classroom repository
-git clone <YOUR_CLASSROOM_REPO_URL>
-cd <REPO_NAME>
-
-# 2. Set up Python virtual environment (Python 3.10+ recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# 3. Install required dependencies
-pip install numpy pandas scipy scikit-learn matplotlib seaborn statsmodels jupyter
-
-# 4. Launch Jupyter Notebook
-jupyter notebook analysis.ipynb
-```
-
-All 21 code cells in `analysis.ipynb` are fully self-contained and pre-executed with pre-rendered graphical and tabular outputs.
-
----
-
-## 9. References
+## 8. References
 
 1. **Weijs-Perrée, M., Appel-Meulenbroek, R., & Arentze, T. (2021).** Analysing user satisfaction with coworking spaces: A regression analysis of physical and social aspects. *Journal of Corporate Real Estate*, 23(3), 195–214.
 2. **Chegut, A., Eichholtz, P., & Kok, N. (2020).** The price of flexibility: Valuing flexible office space and coworking. *The Journal of Real Estate Finance and Economics*, 61(4), 578–608.
