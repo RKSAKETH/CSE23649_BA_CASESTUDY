@@ -29,7 +29,7 @@ This case study applies econometric modeling, supervised machine learning, and u
 2. **Hedonic Pricing Decomposition & Amenity Valuation:**  
    Decompose composite workspace membership fees into constituent attribute values using log-linear hedonic regression, isolating the marginal percentage price premium (% in USD) commanded by individual amenities while controlling for country-level fixed effects.
 3. **Unsupervised Market Segmentation & Strategic Benchmarking:**  
-   Cluster global flexible workspaces into data-driven competitive tiers using $k$-Means clustering, providing actionable operational recommendations for workspace operators, platform aggregators, and remote professionals.
+   Cluster global flexible workspaces into data-driven competitive tiers using *k*-Means clustering, providing actionable operational recommendations for workspace operators, platform aggregators, and remote professionals.
 
 ---
 
@@ -58,32 +58,36 @@ Syllabus Unit 3: Text Mining, Document Preprocessing & Bag-of-Words Feature Extr
 ```
 
 ### 4.1 Multiple Linear Regression (Hedonic Price Modeling)
-* **Method:** Log-linear Ordinary Least Squares (OLS) regression modeling $\ln(\text{Price}_i)$ against capacity, 16 amenity indicators, and country fixed effects:
-  $$\ln(\text{Price}_i) = \beta_0 + \beta_1 \cdot \text{Capacity}_i + \sum_{k} \beta_k \cdot \text{Amenity}_{k,i} + \sum_{j} \gamma_j \cdot \text{Country}_{j,i} + \varepsilon_i$$
+* **Method:** Log-linear Ordinary Least Squares (OLS) regression modeling `ln(Price)` against capacity, 16 amenity indicators, and country fixed effects:
+
+```math
+\ln(\text{Price}_i) = \beta_0 + \beta_1 \cdot \text{Capacity}_i + \sum_{k} \beta_k \cdot \text{Amenity}_{k,i} + \sum_{j} \gamma_j \cdot \text{Country}_{j,i} + \varepsilon_i
+```
+
 * **Benchmarking:** Benchmarked against L2 Ridge Regularization and Random Forest Regression (*Unit 2: Combining Methods & Ensembles*).
-* **Metric:** Evaluated via $R^2$, Adjusted $R^2$, RMSE, and MAE.
+* **Evaluation Metrics:** Evaluated via **R²**, **Adjusted R²**, **RMSE**, and **MAE**.
 
 ### 4.2 Customer Satisfaction Classification & Driver Analytics
-* **Method:** Formulated as a binary classification task to address platform rating skewness ($\text{High Satisfaction} = 1$ if $\text{Happiness Score} \ge 4.5$, else $0$).
+* **Method:** Formulated as a binary classification task to address platform rating skewness (**High Satisfaction = 1** if `Happiness Score >= 4.5`, else `0`).
 * **Algorithms:**
   1. *Logistic Regression:* Estimated log-odds and odds ratios for operational factors.
   2. *Random Forest Classifier (150 estimators):* Modeled non-linear feature interactions and quantified Gini impurity importance.
-* **Metric & Diagnostics:** Evaluated using Accuracy, Precision, Recall, Macro F1-Score, ROC Curves (with Youden's $J$ cutoff), Precision-Recall curves, and normalized confusion matrices.
+* **Metrics & Diagnostics:** Evaluated using Accuracy, Precision, Recall, Macro F1-Score, ROC Curves (with Youden's *J* cutoff), Precision-Recall curves, and normalized confusion matrices.
 
-### 4.3 Unsupervised Market Segmentation ($k$-Means Clustering)
-* **Method:** Standardized continuous features using Z-score normalization and partitioned spaces using Euclidean distance-based $k$-Means.
-* **Validation:** Optimal cluster count ($k=3$) validated through Silhouette Score analysis ($S = 0.312$ across $k \in [2, 8]$), Elbow WCSS curve, and within-cluster silhouette profile diagrams.
+### 4.3 Unsupervised Market Segmentation (*k*-Means Clustering)
+* **Method:** Standardized continuous features using Z-score normalization and partitioned spaces using Euclidean distance-based *k*-Means.
+* **Validation:** Optimal cluster count (*k* = 3) validated through Silhouette Score analysis (*S* = 0.312 across *k* ∈ [2, 8]), Elbow WCSS curve, and within-cluster silhouette profile diagrams.
 
 ---
 
 ## 5. Key Results & Findings
 
 ### 5.1 Hedonic Pricing Premiums (Marginal Willingness-to-Pay)
-* **Transit Proximity (5-min walk):** $+33.8\%$ price premium ($p < 0.0001, t = 8.25$)
-* **Lounge / Chill-out Area:** $+32.9\%$ price premium ($p < 0.0001, t = 8.12$)
-* **24/7 Member Access:** $+25.1\%$ price premium ($p < 0.0001, t = 7.60$)
-* **Ergonomic Chairs:** $+16.3\%$ price premium ($p < 0.0001, t = 4.43$)
-* **Shared Kitchen:** $+8.0\%$ price premium ($p = 0.0169, t = 2.39$)
+* **Transit Proximity (5-min walk):** **+33.8%** price premium (*p* < 0.0001, *t* = 8.25)
+* **Lounge / Chill-out Area:** **+32.9%** price premium (*p* < 0.0001, *t* = 8.12)
+* **24/7 Member Access:** **+25.1%** price premium (*p* < 0.0001, *t* = 7.60)
+* **Ergonomic Chairs:** **+16.3%** price premium (*p* < 0.0001, *t* = 4.43)
+* **Shared Kitchen:** **+8.0%** price premium (*p* = 0.0169, *t* = 2.39)
 * **Baseline Amenities (WiFi, Coffee, AC):** Negative coefficients in log-linear OLS due to market saturation (>70% penetration); they represent non-negotiable hygiene factors rather than premium differentiators.
 
 ### 5.2 Satisfaction Driver Analytics
@@ -95,7 +99,7 @@ Syllabus Unit 3: Text Mining, Document Preprocessing & Bag-of-Words Feature Extr
   4. Seating Capacity Scale (`capacity_imputed`).
   5. Ergonomic Workstations (`has_ergonomic_chairs`).
 
-### 5.3 Identified Market Archetypes ($k=3$ Clusters)
+### 5.3 Identified Market Archetypes (*k* = 3 Clusters)
 * **Tier 1: Urban Core / Boutique Hubs (46.6% of market):** Premium price (Mean: \$212.36/mo), lean amenity checklist (6.3), focused capacity (24 desks). Monetizes prime transit real estate.
 * **Tier 2: Enterprise Mega-Campuses (9.8% of market):** Competitive price (Mean: \$71.96/mo), large capacity (266.7 desks), comprehensive amenities (59.9), high business infrastructure score (3.62 / 4.0).
 * **Tier 3: Balanced Value Spaces (43.6% of market):** Accessible price (Mean: \$68.52/mo), moderate capacity (49.4 desks), strong community focus (23.9 amenities).
@@ -106,8 +110,8 @@ Syllabus Unit 3: Text Mining, Document Preprocessing & Bag-of-Words Feature Extr
 
 | Published Study | Dataset & Sample Size | Method Used | Key Finding | Comparison with This Study |
 | :--- | :--- | :--- | :--- | :--- |
-| **Weijs-Perrée et al. (2021)**<br>*J. Corp. Real Estate* | Survey of 291 users in Netherlands | OLS Regression & Structural Equation Modeling (SEM) | Noise levels and social climate drive satisfaction ($R^2 = 0.41$) | Small, localized survey ($N=291$) vs. our global scraped dataset ($N=13,882$). Lacked pricing elasticity and clustering. |
-| **Chegut, Eichholtz, & Kok (2020)**<br>*JREFE / MIT Real Estate Lab* | 1,200+ commercial leases in London & NYC | Log-linear Hedonic Pricing (OLS with Fixed Effects) | Flexible offices command 15%–25% rent premiums ($R^2 = 0.58$) | Evaluated institutional landlord leases; our work evaluates direct consumer pricing, amenity elasticity, and member satisfaction. |
+| **Weijs-Perrée et al. (2021)**<br>*J. Corp. Real Estate* | Survey of 291 users in Netherlands | OLS Regression & Structural Equation Modeling (SEM) | Noise levels and social climate drive satisfaction (R² = 0.41) | Small, localized survey (N=291) vs. our global scraped dataset (N=13,882). Lacked pricing elasticity and clustering. |
+| **Chegut, Eichholtz, & Kok (2020)**<br>*JREFE / MIT Real Estate Lab* | 1,200+ commercial leases in London & NYC | Log-linear Hedonic Pricing (OLS with Fixed Effects) | Flexible offices command 15%–25% rent premiums (R² = 0.58) | Evaluated institutional landlord leases; our work evaluates direct consumer pricing, amenity elasticity, and member satisfaction. |
 | **Yang, Becerik-Gerber, & Mino (2023)**<br>*Building & Environment* | Survey of 450 remote workers in US | Random Forest Classifier, Decision Trees, Ordinal Logit | Acoustic privacy and ergonomics explain >40% satisfaction variance | Corroborates our finding that phone booths and ergonomics outweigh social perks; our study expands scope globally and integrates economic valuation. |
 
 ---
